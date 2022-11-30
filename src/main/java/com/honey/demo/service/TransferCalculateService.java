@@ -34,7 +34,7 @@ public class TransferCalculateService {
         return new TransferCalculateDto(
                 transferCoin,
                 toMarketSellDto.getAmounts().get(transferCoin),
-                fromMarketBuyDto.getOrderBooks().get(transferCoin)
+                fromMarketBuyDto.getOrderBooks().get(transferCoin),
                 toMarketSellDto.getOrderBooks().get(transferCoin)
         );
 
