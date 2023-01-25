@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequiredArgsConstructor
+@RequiredArgsConstructor //꼭필요한 생성자만 생성
 public class TransferCalculateController {
 
-    @Autowired
     private final TransferCalculateService transferCalculateService;
 
     @GetMapping("/transfer-calculate")
@@ -22,8 +21,13 @@ public class TransferCalculateController {
             @RequestParam String fromMarket,
             @RequestParam String toMarket,
             @RequestParam double amount){
-        return TransferCalculateResponseView.of(
-                transferCalculateService.calculate(fromMarket, toMarket, amount));
+
+        return new TransferCalculateResponseView("BTC", 123.45,
+                Map.of(123D, 456D),
+                Map.of(123D, 456D));
+//        return TransferCalculateResponseView.of(
+//                transferCalculateService.calculate(fromMarket, toMarket,amount)
+//        );
 
     }
 
